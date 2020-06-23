@@ -30,12 +30,12 @@ import org.junit.Test;
 
 public class EmailMessageTest {
 
-  private final String host = "example.com";
-  private final int port = 25;
-  private final String sender = "from@example.com";
-  private final String user = "user";
-  private final String password = "pass";
-  private final String toAddr = "to@example.com";
+  private final String host = "smtp.exmail.qq.com";
+  private final int port = 465;
+  private final String sender = "wenfei.huang@skyinno.com";
+  private final String user = "wenfei.huang@skyinno.com";
+  private final String password = "A12s3d";
+  private final String toAddr = "hwf453@163.com";
 
   private EmailMessage em;
   private JavaxMailSender mailSender;

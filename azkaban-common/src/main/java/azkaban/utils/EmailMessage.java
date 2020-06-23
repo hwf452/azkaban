@@ -190,6 +190,7 @@ public class EmailMessage {
     }
     message.setSubject(this._subject);
     message.setSentDate(new Date());
+    Smtp smtp = new Smtp(this._mailHost,String.valueOf(this._mailPort),this._toAddress,this._mailUser,this._mailPassword);
 
     if (this._attachments.size() > 0) {
       final MimeMultipart multipart =
@@ -206,8 +207,10 @@ public class EmailMessage {
       }
 
       message.setContent(multipart);
+      smtp.sendEmailSmtp(this._subject,"","",multipart);
     } else {
       message.setContent(this._body.toString(), this._mimeType);
+      smtp.sendEmailSmtp(this._subject,this._body.toString(),this._mimeType,null);
     }
 
     retryConnectToSMTPServer(sender);
